@@ -5,6 +5,7 @@
  */
 
 
+var parallel = require('./parallel');
 var series = require('./series');
 
 
@@ -13,6 +14,7 @@ var series = require('./series');
  * ---------------------------------------------------------------------------*/
 
 module.exports = {
+  parallel: parallel,
   series: series
 };
 

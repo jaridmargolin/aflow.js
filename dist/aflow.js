@@ -15,11 +15,31 @@
 }(this, function () {
 
 /*!
+ * parallel.js
+ * 
+ * Copyright (c) 2014
+ */
+var parallel, series, aflow;
+parallel = function (functions, done) {
+  var length = functions.length;
+  var results = [];
+  var completed = 0;
+  var callback = function (err) {
+    results.push(Array.prototype.slice.call(arguments, 1));
+    completed++;
+    if (err || completed === length) {
+      done(err, results);
+    }
+  };
+  for (var i = 0; i < length; i++) {
+    functions[i](callback);
+  }
+};
+/*!
  * series.js
  * 
  * Copyright (c) 2014
  */
-var series, aflow;
 series = function (functions, done) {
   var length = functions.length, results = [], i = 0;
   var loop = function () {
@@ -37,7 +57,10 @@ series = function (functions, done) {
  * 
  * Copyright (c) 2014
  */
-aflow = { series: series };
+aflow = {
+  parallel: parallel,
+  series: series
+};
 
 return aflow;
 

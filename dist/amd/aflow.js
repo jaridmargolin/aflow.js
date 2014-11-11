@@ -6,8 +6,9 @@
 
 
 define([
-  './series',
-], function (series) {
+  './parallel',
+  './series'
+], function (parallel, series) {
 
 
 /* -----------------------------------------------------------------------------
@@ -15,6 +16,7 @@ define([
  * ---------------------------------------------------------------------------*/
 
 return {
+  parallel: parallel,
   series: series
 };
 
