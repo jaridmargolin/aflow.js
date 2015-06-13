@@ -7,8 +7,9 @@
 
 define([
   './parallel',
-  './series'
-], function (parallel, series) {
+  './series',
+  './each-series'
+], function (parallel, series, eachSeries) {
 
 
 /* -----------------------------------------------------------------------------
@@ -17,7 +18,8 @@ define([
 
 return {
   parallel: parallel,
-  series: series
+  series: series,
+  eachSeries: eachSeries
 };
 
 
