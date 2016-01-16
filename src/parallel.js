@@ -1,7 +1,5 @@
 /*!
  * parallel.js
- * 
- * Copyright (c) 2014
  */
 
 

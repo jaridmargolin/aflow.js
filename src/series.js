@@ -1,7 +1,5 @@
 /*!
  * series.js
- * 
- * Copyright (c) 2014
  */
 
 

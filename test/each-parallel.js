@@ -1,7 +1,5 @@
 /*!
  * test/each-parallel.js
- * 
- * Copyright (c) 2014
  */
 
 define([

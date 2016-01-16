@@ -1,7 +1,5 @@
 /*!
  * aflow.js
- * 
- * Copyright (c) 2014
  */
 
 
