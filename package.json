@@ -2,7 +2,7 @@
   "name": "aflow.js",
   "description": "Collection of async flow control methods.",
   "author": "Jarid Margolin <jaridmargolin@gmail.com>",
-  "version": "0.0.3",
+  "version": "0.1.3",
   "homepage": "https://github.com/jaridmargolin/aflow.js",
   "repository": {
     "type": "git",
