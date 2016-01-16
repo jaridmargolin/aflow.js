@@ -11,12 +11,14 @@ define(function () {
  * ---------------------------------------------------------------------------*/
 
 /**
- * Run the functions in the tasks array in series, each one running
- * once the previous function has completed. If any functions in the
- * series pass an error to its callback, no more functions are run,
- * and callback is immediately called with the value of the error and
- * current results. Otherwise, callback receives an array of results
- * when tasks have completed.
+ * @public
+ * @memberof aflow
+ *
+ * @desc Run the functions in the tasks array in series, each one running once
+ *   the previous function has completed. If any functions in the series pass an
+ *   error to its callback, no more functions are run, and callback is
+ *   immediately called with the value of the error and current results.
+ *   Otherwise, callback receives an array of results when tasks have completed.
  *
  * @example
  * async.series([fn1, fn2], function (err, results) {
@@ -27,13 +29,11 @@ define(function () {
  *   doSomething(results[0], results[1]);
  * });
  *
- * @public
- * @params {array} functions - An array or object containing functions
- *   to run.
- * @params {function} callback - An optional callback to call once all
- *   functions have completed running, or an error has been thrown.
+ * @param {array} functions - An array or object containing functions to run.
+ * @param {function} callback - An optional callback to call once all functions
+ *   have completed running, or an error has been thrown.
  */
-return function (functions, done) {
+var series = function (functions, done) {
   var length = functions.length,
       results = [],
       i = 0;
@@ -53,6 +53,13 @@ return function (functions, done) {
   // start loop
   loop();
 };
+
+
+/* -----------------------------------------------------------------------------
+ * expose
+ * ---------------------------------------------------------------------------*/
+
+return series;
 
 
 });

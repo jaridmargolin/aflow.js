@@ -11,10 +11,13 @@ define(function () {
  * ---------------------------------------------------------------------------*/
 
 /**
- * Run the functions in the tasks array in parrallel. If any of the functions
- * pass an error to its callback, the main callback is immediately called with
- * the value of the error. Once the tasks have completed, the results are
- * passed to the final callback as an array.
+ * @public
+ * @memberof aflow
+ *
+ * @desc Run the functions in the tasks array in parrallel. If any of the
+ *   functions pass an error to its callback, the main callback is immediately
+ *   called with the value of the error. Once the tasks have completed, the
+ *   results are passed to the final callback as an array.
  *
  * @example
  * async.parallel([fn1, fn2], function (err, results) {
@@ -25,13 +28,11 @@ define(function () {
  *   doSomething(results[0], results[1]);
  * });
  *
- * @public
- * @params {array} functions - An array or object containing functions
- *   to run.
- * @params {function} callback - An optional callback to call once all
- *   functions have completed running, or an error has been thrown.
+ * @param {array} functions - An array or object containing functions to run.
+ * @param {function} callback - An optional callback to call once all functions
+ *   have completed running, or an error has been thrown.
  */
-return function (functions, done) {
+var parallel = function (functions, done) {
   var length = functions.length;
   var results = [];
   var completed = 0;
@@ -49,6 +50,13 @@ return function (functions, done) {
     functions[i](callback);
   }
 };
+
+
+/* -----------------------------------------------------------------------------
+ * expose
+ * ---------------------------------------------------------------------------*/
+
+return parallel;
 
 
 });

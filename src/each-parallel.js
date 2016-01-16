@@ -11,13 +11,16 @@ define(function () {
  * ---------------------------------------------------------------------------*/
 
 /**
- * Applies the function iterator to each item in arr, in parallel. The iterator
- * is called with an item from the list, and a callback for when it has finished.
- * If the iterator passes an error to its callback, the main callback (for the
- * each function) is immediately called with the error.
+ * @public
+ * @memberof aflow
  *
- * Note, that since this function applies iterator to each item in parallel,
- * there is no guarantee that the iterator functions will complete in order.
+ * @desc Applies the function iterator to each item in arr, in parallel. The
+ *   iterator is called with an item from the list, and a callback for when it
+ *   has finished. If the iterator passes an error to its callback, the main
+ *   callback (for the each function) is immediately called with the error.
+ *
+ *   Note, that since this function applies iterator to each item in parallel,
+ *   there is no guarantee that the iterator functions will complete in order.
  *
  * @example
  * aflow.eachParallel([1, 2], function (val, next) {
@@ -30,14 +33,12 @@ define(function () {
  *   doSomething(results[0], results[1]);
  * });
  *
- * @public
- * @params {array} array - The array to loop through.
- * @params {function} iterator - The iterator called for each item in
- *   the array.
- * @params {function} callback - An optional callback to call once all
- *   functions have completed running, or an error has been thrown.
+ * @param {array} array - The array to loop through.
+ * @param {function} iterator - The iterator called for each item in the array.
+ * @param {function} callback - An optional callback to call once all functions
+ *   have completed running, or an error has been thrown.
  */
-return function (obj, iterator, done) {
+var eachParallel = function (obj, iterator, done) {
   var length = obj.length;
   var results = [];
   var completed = 0;
@@ -55,6 +56,13 @@ return function (obj, iterator, done) {
     iterator(obj[i], callback);
   }
 };
+
+
+/* -----------------------------------------------------------------------------
+ * expose
+ * ---------------------------------------------------------------------------*/
+
+return eachParallel;
 
 
 });

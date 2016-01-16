@@ -11,12 +11,15 @@ define(function () {
  * ---------------------------------------------------------------------------*/
 
 /**
- * Iterates over a an array invoking the iterator function for each element.
- * Iterator is run a series, each one running once the previous function has
- * completed. If any functions in the series pass an error to its callback,
- * no more functions are run, and callback is immediately called with the value
- * of the error and current results. Otherwise, callback receives an array of
- * results when tasks have completed.
+ * @public
+ * @memberof aflow
+ *
+ * @desc Iterates over a an array invoking the iterator function for each
+ *   element. Iterator is run a series, each one running once the previous
+ *   function has completed. If any functions in the series pass an error to its
+ *   callback, no more functions are run, and callback is immediately called
+ *   with the value of the error and current results. Otherwise, callback
+ *   receives an array of results when tasks have completed.
  *
  * @example
  * aflow.eachSeries([1, 2], function (val, next) {
@@ -29,14 +32,12 @@ define(function () {
  *   doSomething(results[0], results[1]);
  * });
  *
- * @public
- * @params {array} array - The array to loop through.
- * @params {function} iterator - The iterator called for each item in
- *   the array.
- * @params {function} callback - An optional callback to call once all
- *   functions have completed running, or an error has been thrown.
+ * @param {array} array - The array to loop through.
+ * @param {function} iterator - The iterator called for each item in the array.
+ * @param {function} callback - An optional callback to call once all functions
+ *   have completed running, or an error has been thrown.
  */
-return function (obj, iterator, done) {
+var eachSeries = function (obj, iterator, done) {
   var length = obj.length;
   var results = [];
   var i = 0;
@@ -57,6 +58,13 @@ return function (obj, iterator, done) {
     ? loop()
     : done(null, results);
 };
+
+
+/* -----------------------------------------------------------------------------
+ * expose
+ * ---------------------------------------------------------------------------*/
+
+return eachSeries;
 
 
 });
