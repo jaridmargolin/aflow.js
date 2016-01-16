@@ -24,6 +24,7 @@ describe('amd - aflow.js', function () {
     assert.ok(aflow.parallel);
     assert.ok(aflow.series);
     assert.ok(aflow.eachSeries);
+    assert.ok(aflow.eachParallel);
   });
 
 });

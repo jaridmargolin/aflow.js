@@ -20,7 +20,8 @@ define(function (require) {
 return {
   parallel: require('./parallel'),
   series: require('./series'),
-  eachSeries: require('./each-series')
+  eachSeries: require('./each-series'),
+  eachParallel: require('./each-parallel')
 };
 
 
