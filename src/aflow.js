@@ -3,11 +3,7 @@
  */
 
 
-define([
-  './parallel',
-  './series',
-  './each-series'
-], function (parallel, series, eachSeries) {
+define(function (require) {
 
 
 /* -----------------------------------------------------------------------------
@@ -15,9 +11,9 @@ define([
  * ---------------------------------------------------------------------------*/
 
 return {
-  parallel: parallel,
-  series: series,
-  eachSeries: eachSeries
+  parallel: require('./parallel'),
+  series: require('./series'),
+  eachSeries: require('./each-series')
 };
 
 

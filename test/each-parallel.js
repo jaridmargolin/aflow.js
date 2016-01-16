@@ -2,11 +2,16 @@
  * test/each-parallel.js
  */
 
-define([
-  'proclaim',
-  'sinon',
-  'each-parallel'
-], function (assert, sinon, eachParallel) {
+define(function (require) {
+
+
+/* -----------------------------------------------------------------------------
+ * dependencies
+ * ---------------------------------------------------------------------------*/
+
+var assert = require('proclaim');
+var sinon = require('sinon');
+var eachParallel = require('each-parallel');
 
 
 /* -----------------------------------------------------------------------------

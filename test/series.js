@@ -2,11 +2,16 @@
  * test/series.js
  */
 
-define([
-  'proclaim',
-  'sinon',
-  'series'
-], function (assert, sinon, series) {
+define(function (require) {
+
+
+/* -----------------------------------------------------------------------------
+ * dependencies
+ * ---------------------------------------------------------------------------*/
+
+var assert = require('proclaim');
+var sinon = require('sinon');
+var series = require('series');
 
 
 /* -----------------------------------------------------------------------------

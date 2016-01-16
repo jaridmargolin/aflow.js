@@ -2,11 +2,16 @@
  * test/aflow.js
  */
 
-define([
-  'proclaim',
-  'sinon',
-  'aflow'
-], function (assert, sinon, aflow) {
+define(function (require) {
+
+
+/* -----------------------------------------------------------------------------
+ * dependencies
+ * ---------------------------------------------------------------------------*/
+
+var assert = require('proclaim');
+var sinon = require('sinon');
+var aflow = require('aflow');
 
 
 /* -----------------------------------------------------------------------------
