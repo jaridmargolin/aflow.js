@@ -20,6 +20,14 @@ var eachParallel = require('each-parallel');
 
 describe('each-parallel.js', function () {
 
+  it('Should call onComplete if array is empty.', function (done) {
+    eachParallel([], function () {
+      callback(null);
+    }, function () {
+      done();
+    });
+  });
+
   it('Should call onComplete with results.', function () {
     eachParallel(['1', '2'], function (val, callback) {
       callback(null, val);

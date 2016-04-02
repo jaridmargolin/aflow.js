@@ -37,6 +37,12 @@ var fn3 = function (done) {
 
 describe('parallel.js', function () {
 
+  it('Should call onComplete if array is empty.', function (done) {
+    parallel([], function () {
+      done();
+    });
+  });
+
   it('Should call onComplete with results.', function () {
     parallel([fn1, fn2], function (err, results) {
       assert.deepEqual(results, [

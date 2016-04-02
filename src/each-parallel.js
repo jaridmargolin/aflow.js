@@ -43,6 +43,12 @@ var eachParallel = function (obj, iterator, done) {
   var results = [];
   var completed = 0;
 
+  var loop = function () {
+    for (var i = 0; i < length; i++) {
+      iterator(obj[i], callback);
+    }
+  };
+
   var callback = function (err) {
     results.push(Array.prototype.slice.call(arguments, 1));
     completed ++;
@@ -52,9 +58,9 @@ var eachParallel = function (obj, iterator, done) {
     }
   };
 
-  for (var i = 0; i < length; i++) {
-    iterator(obj[i], callback);
-  }
+  return length
+    ? loop()
+    : done(null, results);
 };
 
 

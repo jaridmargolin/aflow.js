@@ -50,8 +50,9 @@ var series = function (functions, done) {
       : loop();    
   };
 
-  // start loop
-  loop();
+  return length
+    ? loop()
+    : done(null, results);
 };
 
 

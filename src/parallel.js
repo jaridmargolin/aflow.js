@@ -37,6 +37,12 @@ var parallel = function (functions, done) {
   var results = [];
   var completed = 0;
 
+  var loop = function () {
+    for (var i = 0; i < length; i++) {
+      functions[i](callback);
+    }
+  };
+
   var callback = function (err) {
     results.push(Array.prototype.slice.call(arguments, 1));
     completed ++;
@@ -46,9 +52,9 @@ var parallel = function (functions, done) {
     }
   };
 
-  for (var i = 0; i < length; i++) {
-    functions[i](callback);
-  }
+  return length
+    ? loop()
+    : done(null, results);
 };
 
 

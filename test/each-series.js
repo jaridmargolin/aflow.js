@@ -31,6 +31,14 @@ var iterator = function (val, done) {
 
 describe('each-series.js', function () {
 
+  it('Should call onComplete if array is empty.', function (done) {
+    eachSeries([], function () {
+      callback(null);
+    }, function () {
+      done();
+    });
+  });
+
   it('Should call onComplete with results.', function () {
     eachSeries([1, 2], iterator, function (err, results) {
       assert.deepEqual(results, [[1], [2]]);
