@@ -19,7 +19,9 @@ var parallel = require('parallel');
  * ---------------------------------------------------------------------------*/
 
 var fn1 = function (done) {
-  return done(null, '1', '2');
+  return setTimeout(function () {
+    done(null, '1', '2');
+  }, 0);
 };
 
 var fn2 = function (done) {
@@ -43,12 +45,13 @@ describe('parallel.js', function () {
     });
   });
 
-  it('Should call onComplete with results.', function () {
+  it('Should call onComplete with results in order.', function (done) {
     parallel([fn1, fn2], function (err, results) {
       assert.deepEqual(results, [
         ['1', '2'],
         ['3', '4']
       ]);
+      done();
     });
   });
 

@@ -28,11 +28,14 @@ describe('each-parallel.js', function () {
     });
   });
 
-  it('Should call onComplete with results.', function () {
+  it('Should call onComplete with results in order.', function (done) {
     eachParallel(['1', '2'], function (val, callback) {
-      callback(null, val);
+      return val === '1'
+        ? setTimeout(function () { callback(null, val); }, 0)
+        : callback(null, val);
     }, function (err, results) {
       assert.deepEqual(results, ['1', '2']);
+      done();
     });
   });
 

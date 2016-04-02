@@ -45,17 +45,19 @@ var eachParallel = function (obj, iterator, done) {
 
   var loop = function () {
     for (var i = 0; i < length; i++) {
-      iterator(obj[i], callback);
+      callIterator(i);
     }
   };
 
-  var callback = function (err) {
-    results.push(Array.prototype.slice.call(arguments, 1));
-    completed ++;
+  var callIterator = function (i) {
+    iterator(obj[i], function (err) {
+      results[i] = Array.prototype.slice.call(arguments, 1);
+      completed ++;
 
-    if (err || completed === length) {
-      done(err, results);
-    }
+      if (err || completed === length) {
+        done(err, results);
+      }
+    });
   };
 
   return length

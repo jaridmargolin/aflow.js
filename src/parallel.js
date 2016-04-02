@@ -39,17 +39,19 @@ var parallel = function (functions, done) {
 
   var loop = function () {
     for (var i = 0; i < length; i++) {
-      functions[i](callback);
+      callFn(i);
     }
   };
 
-  var callback = function (err) {
-    results.push(Array.prototype.slice.call(arguments, 1));
-    completed ++;
+  var callFn = function (i) {
+    functions[i](function (err) {
+      results[i] = Array.prototype.slice.call(arguments, 1);
+      completed ++;
 
-    if (err || completed === length) {
-      done(err, results);
-    }
+      if (err || completed === length) {
+        done(err, results);
+      }
+    });
   };
 
   return length
