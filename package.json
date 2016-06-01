@@ -16,7 +16,8 @@
   },
   "main": "dist/common/aflow.js",
   "devDependencies": {
-    "easy-build": "~0.3.0",
+    "easy-build": "~1.0.0",
+    "grunt": "~0.4.5",
     "proclaim": "~3.4.0",
     "sinon": "~1.17.2"
   },

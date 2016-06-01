@@ -16,6 +16,7 @@
   "laxbreak": true,
   "boss": true,
   "sub": true,
+  "latedef": false,
   "predef": {
     "describe": true,
     "it": true,
