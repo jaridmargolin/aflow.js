@@ -20,6 +20,7 @@ define(function (require) {
 return {
   parallel: require('./parallel'),
   series: require('./series'),
+  waterfall: require('./waterfall'),
   eachSeries: require('./each-series'),
   eachParallel: require('./each-parallel')
 };
